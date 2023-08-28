@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="main.js"></script>
+    <title>Меню бутербродов</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Бутерброды</h2>
+    <div id="sandwiches" class="row"></div>
+    <h2 class="mt-5">Ингредиенты</h2>
+    <div id="ingredients" class="row"></div>
+</div>
+<!-- Кнопка добавить бутерброд -->
+<button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#sandwichModal">Добавить бутерброд
+</button>
+
+<!-- Модальное окно для бутерброда -->
+<div class="modal fade" id="sandwichModal" tabindex="-1" aria-labelledby="sandwichModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sandwichModalLabel">Добавить бутерброд</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-body">
+                    <form id="sandwichForm">
+                        <div class="mb-3">
+                            <label for="sandwichName" class="form-label">Название бутерброда</label>
+                            <input type="text" class="form-control" id="sandwichName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sandwichDescription" class="form-label">Описание</label>
+                            <textarea class="form-control" id="sandwichDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sandwichIngredients" class="form-label">Ингредиенты</label>
+                            <select multiple class="form-control" id="sandwichIngredients">
+                                <!-- Здесь будет список всех ингредиентов -->
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Добавить бутерброд</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Кнопка добавить ингредиент -->
+<button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#ingredientModal">Добавить
+    ингредиент
+</button>
+
+<!-- Модальное окно для ингредиентов -->
+<div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="ingredientModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ingredientModalLabel">Добавить ингредиент</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="ingredientForm">
+                    <div class="mb-3">
+                        <label for="ingredientName" class="form-label">Название ингредиента</label>
+                        <input type="text" class="form-control" id="ingredientName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingredientWeight" class="form-label">Вес</label>
+                        <input type="text" class="form-control" id="ingredientWeight" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="ingredientKcal" class="form-label">Калорийность</label>
+                        <input type="text" class="form-control" id="ingredientKcal" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Добавить ингредиент</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
