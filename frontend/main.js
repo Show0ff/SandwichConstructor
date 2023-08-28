@@ -14,13 +14,13 @@ $(document).ready(function () {
         createSandwich();
     });
     $('#ingredientForm').on('submit', function (event) {
-        event.preventDefault(); // Останавливаем стандартное поведение формы
+        event.preventDefault();
         createIngredient();
     });
 });
 
 function loadSandwiches() {
-    $.get('http://127.0.0.1:8000/api/sandwich/all/', function (data) {
+    $.get('http://127.0.0.1:8000/api/sandwich/', function (data) {
         $('#sandwiches').empty();
 
         data.forEach(sandwich => {
@@ -47,7 +47,7 @@ function loadSandwiches() {
 
 
 function loadIngredients(callback) {
-    $.get('http://127.0.0.1:8000/api/ingredient/all', function (data) {
+    $.get('http://127.0.0.1:8000/api/ingredient', function (data) {
         $('#ingredients').empty();
         console.log(data);
         data.forEach(ingredient => {
@@ -78,7 +78,7 @@ function loadIngredients(callback) {
 
 function deleteSandwich(id) {
     $.ajax({
-        url: `http://127.0.0.1:8000/api/sandwich/delete/${id}/`,
+        url: `http://localhost:8000/api/sandwich/${id}/`,
         type: 'DELETE',
         success: function () {
             loadSandwiches();
@@ -88,7 +88,7 @@ function deleteSandwich(id) {
 
 function deleteIngredient(id) {
     $.ajax({
-        url: `http://127.0.0.1:8000/api/ingredient/delete/${id}/`,
+        url: `http://localhost:8000/api/ingredient/${id}/`,
         type: 'DELETE',
         success: function () {
             loadIngredients();
@@ -120,7 +120,7 @@ function createSandwich() {
     let sandwichData = getSandwichDataFromForm();
 
     $.ajax({
-        url: 'http://127.0.0.1:8000/api/sandwich/all/',
+        url: 'http://localhost:8000/api/sandwich/',
         type: 'POST',
         data: JSON.stringify(sandwichData),
         contentType: 'application/json',
@@ -145,7 +145,7 @@ function createIngredient() {
     let ingredientData = getIngredientDataFromForm();
 
     $.ajax({
-        url: 'http://localhost:8000/api/ingredient/all',
+        url: 'http://localhost:8000/api/ingredient/',
         type: 'POST',
         data: JSON.stringify(ingredientData),
         contentType: 'application/json',
